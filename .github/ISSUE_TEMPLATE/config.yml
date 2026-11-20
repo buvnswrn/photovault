@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Design decisions (ADRs)
+    url: https://github.com/buvnswrn/photovault/tree/main/docs/adr
+    about: Check existing decisions before proposing a change.
+  - name: Safety invariants
+    url: https://github.com/buvnswrn/photovault/blob/main/docs/SAFETY.md
+    about: Rules every change must respect.

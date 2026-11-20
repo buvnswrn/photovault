@@ -1,0 +1,47 @@
+name: Feature
+description: A new capability or change in behaviour
+title: "[ID] "
+labels: ["type:feature"]
+body:
+  - type: input
+    id: id
+    attributes:
+      label: Backlog ID
+      description: Epic prefix and number, e.g. ING-8. Also put it in the title as [ING-8].
+      placeholder: ING-8
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What should exist or change, and why.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Checkable outcomes. The issue is done when all are ticked.
+      value: |
+        - [ ]
+    validations:
+      required: true
+  - type: textarea
+    id: depends
+    attributes:
+      label: Depends on
+      placeholder: "- #12 (ING-2)"
+  - type: textarea
+    id: design
+    attributes:
+      label: Design references
+      description: Related ADRs (docs/adr). If this needs a new decision, write an ADR first.
+      placeholder: "- ADR-0004"
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety impact
+      options:
+        - label: This touches a safety invariant in docs/SAFETY.md (name it above, e.g. S2) and needs a fault-injection test
+        - label: This changes how data is restored (docs/RECOVERY.md must be updated)

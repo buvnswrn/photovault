@@ -1,0 +1,46 @@
+name: Spike
+description: A time-boxed investigation that ends in a written recommendation
+title: "[ID] SPIKE: "
+labels: ["type:spike"]
+body:
+  - type: input
+    id: id
+    attributes:
+      label: Backlog ID
+      placeholder: AGT-9
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Question to answer
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: Options to compare
+      placeholder: |
+        - Option A
+        - Option B
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Evaluation criteria
+      placeholder: |
+        - Reliability
+        - Setup effort
+  - type: input
+    id: timebox
+    attributes:
+      label: Time box
+      placeholder: "e.g. 2 evenings"
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Expected output
+      value: |
+        - [ ] Written comparison in docs/
+        - [ ] Recommendation recorded as an ADR (status Proposed)

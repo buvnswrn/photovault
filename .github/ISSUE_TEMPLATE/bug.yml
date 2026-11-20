@@ -1,0 +1,50 @@
+name: Bug
+description: Something behaves wrongly
+title: "[BUG] "
+labels: ["type:bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This repo is **public**. Don't paste drive serials, full paths, file names, database names, tokens or ping URLs.
+  - type: dropdown
+    id: data_risk
+    attributes:
+      label: Is data at risk?
+      options:
+        - "No: cosmetic or inconvenient"
+        - "Maybe: a backup or verification may be incomplete"
+        - "Yes: data lost, overwritten, or reported as backed up when it wasn't"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened vs. what you expected
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Plug in SSD only
+        2. ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: photovault and restic versions
+      placeholder: "photovault v0.1.0, restic 0.17.x"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log lines (sanitized)
+      render: text
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety impact
+      options:
+        - label: This breaks a safety invariant in docs/SAFETY.md (name it, e.g. S2)

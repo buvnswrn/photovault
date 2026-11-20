@@ -1,0 +1,27 @@
+name: Decision needed
+description: An open question the project owner has to answer
+title: "[Q-] Decide: "
+labels: ["type:decision"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: Options and trade-offs
+  - type: textarea
+    id: blocks
+    attributes:
+      label: What this blocks
+      placeholder: "- #33 (DB-1)"
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Done when
+      value: |
+        - [ ] Answer recorded in this issue
+        - [ ] Related ADR created or updated (only the owner sets it to Accepted)
