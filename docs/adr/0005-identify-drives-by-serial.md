@@ -1,6 +1,6 @@
 # ADR-0005: Identify backup drives by serial number
 
-- **Status:** Accepted
+- **Status:** Proposed
 - **Date:** 2026-11-20
 - **Related:** ADR-0004, ADR-0009
 

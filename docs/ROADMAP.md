@@ -137,19 +137,19 @@ The full reasoning, including rejected alternatives, is in the **[Architecture D
 
 | Decision | ADR | Status |
 |---|---|---|
-| One system for ingest and protection | [0001](adr/0001-scope-merge-ingest-and-protection.md) | Accepted |
+| One system for ingest and protection | [0001](adr/0001-scope-merge-ingest-and-protection.md) | Proposed |
 | One Go program; restic for the backup repositories | [0002](adr/0002-go-program-with-restic.md) | Proposed: confirm (Q-5) |
 | Hub runs as a logon-time tray process, not a Windows Service | [0003](adr/0003-hub-runs-as-logon-tray-process.md) | Proposed: confirm (Q-5) |
-| Staging on the internal disk with a size quota | [0004](adr/0004-staging-first-ingest.md) | Accepted |
-| Drives identified by serial number | [0005](adr/0005-identify-drives-by-serial.md) | Accepted |
-| Tiered storage and retention | [0006](adr/0006-tiered-storage-and-retention.md) | Accepted |
-| End-to-end integrity verification | [0007](adr/0007-end-to-end-integrity-verification.md) | Accepted |
+| Staging on the internal disk with a size quota | [0004](adr/0004-staging-first-ingest.md) | Proposed |
+| Drives identified by serial number | [0005](adr/0005-identify-drives-by-serial.md) | Proposed |
+| Tiered storage and retention | [0006](adr/0006-tiered-storage-and-retention.md) | Proposed |
+| End-to-end integrity verification | [0007](adr/0007-end-to-end-integrity-verification.md) | Proposed |
 | Append-only: never delete on the hub because a file was deleted on the phone | [0008](adr/0008-append-only-no-deletion-propagation.md) | Proposed |
-| Event-driven triggers | [0009](adr/0009-event-driven-triggers.md) | Accepted |
+| Event-driven triggers | [0009](adr/0009-event-driven-triggers.md) | Proposed |
 | Phone: wired and wireless | [0010](adr/0010-phone-connectivity-wired-and-wireless.md) | Accepted |
 | Every automatic job goes through the load check / consent gate | [0011](adr/0011-request-consent-and-load-aware-gating.md) | Proposed |
-| Monitoring and reminders; the website only receives status | [0012](adr/0012-monitoring-and-reminders.md) | Accepted |
-| DB backups via native dumps | [0013](adr/0013-database-backups-via-native-dumps.md) | Accepted |
+| Monitoring and reminders; the website only receives status | [0012](adr/0012-monitoring-and-reminders.md) | Proposed |
+| DB backups via native dumps | [0013](adr/0013-database-backups-via-native-dumps.md) | Proposed |
 | Encryption and secrets | [0014](adr/0014-encryption-and-secrets.md) | Proposed |
 | Cloud overflow vs. offsite | [0015](adr/0015-cloud-overflow-vs-offsite.md) | Deferred |
 | Tailscale roaming, WoL, node-online trigger | [0016](adr/0016-deferred-remote-wake-and-roaming.md) | Deferred |

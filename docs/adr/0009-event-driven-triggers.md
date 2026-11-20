@@ -1,6 +1,6 @@
 # ADR-0009: Event-driven triggers instead of fixed schedules
 
-- **Status:** Accepted
+- **Status:** Proposed
 - **Date:** 2026-11-20
 - **Related:** ADR-0003, ADR-0005, ADR-0011, ADR-0012
 

@@ -1,6 +1,6 @@
 # ADR-0004: Staging-first ingest with a quota
 
-- **Status:** Accepted
+- **Status:** Proposed
 - **Date:** 2026-11-20
 - **Related:** ADR-0005, ADR-0006, ADR-0007
 

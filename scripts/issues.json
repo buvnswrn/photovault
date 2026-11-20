@@ -40,6 +40,9 @@
     { "id": "Q-5", "title": "Decide: confirm Go + restic (ADR-0002) and tray-process hub (ADR-0003)", "milestone": "M0 Foundations", "labels": ["type:decision", "prio:P0", "mvp"], "depends": [], "adrs": ["0002", "0003"],
       "description": "ADR-0002 and ADR-0003 are Proposed. Confirm or change them before FND-1 starts.",
       "ac": ["ADR-0002 status set to Accepted or superseded", "ADR-0003 status set to Accepted or superseded"] },
+    { "id": "Q-6", "title": "Review and accept or reject the proposed ADRs (0001-0016)", "milestone": "M0 Foundations", "labels": ["type:decision", "prio:P0", "mvp"], "depends": [], "adrs": ["0000"],
+      "description": "The ADRs were drafted from design chats. Only 0000 (use ADRs) and 0010 (phone wired + wireless) reflect explicit owner decisions; everything else is Proposed. Read each one and set its status to Accepted, Rejected, or keep it Proposed with comments. Rule: only the project owner moves an ADR to Accepted (docs/adr/README.md). ADR-0002 and ADR-0003 are tracked in Q-5.",
+      "ac": ["0001 Scope: one system", "0004 Staging-first ingest", "0005 Drives by serial number", "0006 Tiered storage and retention", "0007 End-to-end verification", "0008 Append-only", "0009 Event-driven triggers", "0011 Request/consent with load gating", "0012 Monitoring and reminders", "0013 DB backups via native dumps", "0014 Encryption and secrets", "0015 Cloud overflow vs offsite (deferred)", "0016 Tailscale/WoL/node-online (deferred)", "ADR index and ROADMAP decisions table updated to match"] },
 
     { "id": "FND-1", "title": "Repo scaffold: Go module and Cobra CLI skeleton", "milestone": "M0 Foundations", "labels": ["type:chore", "prio:P0", "mvp"], "depends": ["Q-5"], "adrs": ["0002"],
       "description": "Create the Go module, cmd/photovault entrypoint with Cobra, internal/ package layout, and a CI workflow that builds and tests on Windows and Linux.",

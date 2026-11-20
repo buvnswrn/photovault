@@ -1,6 +1,6 @@
 # ADR-0013: Database backups via native dump tools
 
-- **Status:** Accepted (the list of engines is still open)
+- **Status:** Proposed (the list of engines is still open)
 - **Date:** 2026-11-20
 - **Related:** ADR-0004, ADR-0011
 

@@ -1,6 +1,6 @@
 # ADR-0012: Monitoring and reminders
 
-- **Status:** Accepted
+- **Status:** Proposed
 - **Date:** 2026-11-20
 - **Related:** ADR-0003, ADR-0009
 

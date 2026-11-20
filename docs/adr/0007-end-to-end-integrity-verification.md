@@ -1,6 +1,6 @@
 # ADR-0007: End-to-end integrity verification
 
-- **Status:** Accepted
+- **Status:** Proposed
 - **Date:** 2026-11-20
 - **Related:** ADR-0004, ADR-0006
 

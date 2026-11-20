@@ -1,6 +1,6 @@
 # ADR-0006: Tiered storage (staging → SSD → HDD → offsite) and retention
 
-- **Status:** Accepted
+- **Status:** Proposed
 - **Date:** 2026-11-20
 - **Related:** ADR-0002, ADR-0004, ADR-0015
 

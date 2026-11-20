@@ -1,6 +1,6 @@
 # ADR-0001: Scope: one system for ingest and protection
 
-- **Status:** Accepted
+- **Status:** Proposed
 - **Date:** 2026-11-20
 - **Related:** [ROADMAP](../ROADMAP.md), [blueprint v0](../ideas/photovault-blueprint-v0.md)
 
