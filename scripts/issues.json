@@ -46,6 +46,9 @@
       "description": "The ADRs were drafted from design chats. Only 0000 (use ADRs) and 0010 (phone wired + wireless) reflect explicit owner decisions; everything else is Proposed. Read each one and set its status to Accepted, Rejected, or keep it Proposed with comments. Rule: only the project owner moves an ADR to Accepted (docs/adr/README.md). ADR-0002 and ADR-0003 are tracked in Q-5.",
       "ac": ["0001 Scope: one system", "0004 Staging-first ingest", "0005 Drives by serial number", "0006 Tiered storage and retention", "0007 End-to-end verification", "0008 Append-only", "0009 Event-driven triggers", "0011 Request/consent with load gating", "0012 Monitoring and reminders", "0013 DB backups via native dumps", "0014 Encryption and secrets", "0015 Cloud overflow vs offsite (deferred)", "0016 Tailscale/WoL/node-online (deferred)", "ADR index and ROADMAP decisions table updated to match"] },
 
+    { "id": "Q-7", "title": "Confirm IP ownership against the employment contract before the first release", "milestone": "M0 Foundations", "labels": ["type:decision", "prio:P0"], "depends": [], "adrs": ["0017"],
+      "description": "Dual licensing means selling the code, so the owner must hold the rights. Part of the design work happened on an employer-provided laptop. Under German law (§69b UrhG) the economic rights to software created by employees in the course of their duties go to the employer; a private project outside one's duties is normally the employee's own. Check the contract (or ask HR) and move development to a personal machine.",
+      "ac": ["Employment contract checked for IP / side-project clauses", "Written confirmation or waiver from the employer if needed", "Development continues on a personal machine", "Outcome noted in ADR-0017"] },
     { "id": "FND-1", "title": "Repo scaffold: Go module and Cobra CLI skeleton", "milestone": "M0 Foundations", "labels": ["type:chore", "prio:P0", "mvp"], "depends": ["Q-5"], "adrs": ["0002"],
       "description": "Create the Go module, cmd/photovault entrypoint with Cobra, internal/ package layout, and a CI workflow that builds and tests on Windows and Linux.",
       "ac": ["photovault --help lists init, agent, status, sync, snooze, drives", "CI builds and runs go test on windows-latest and ubuntu-latest"] },
@@ -62,6 +65,9 @@
       "description": "JSON logs with rotation; one status file per run with steps, durations, bytes and results. These feed the tray, dashboard and website push.",
       "ac": ["Logs rotate by size", "Status JSON schema documented"] },
 
+    { "id": "FND-6", "title": "Set up CLA Assistant and sponsorship", "milestone": "M0 Foundations", "labels": ["type:chore", "prio:P1"], "depends": [], "adrs": ["0017"],
+      "description": "Enable the CLA Assistant bot so every external pull request needs a signed CLA (CLA.md), and set up optional sponsorship.",
+      "ac": ["CLA.md text copied into a public gist", "cla-assistant.io connected to buvnswrn/photovault with that gist", "A test PR from another account shows the CLA check", "Optional: GitHub Sponsors profile and .github/FUNDING.yml", "CLA text reviewed by a lawyer before the first commercial sale"] },
     { "id": "ING-1", "title": "Inbox to staging: SHA-256, dedupe, YYYY/MM by EXIF date, manifest", "milestone": "M1 Ingest", "labels": ["type:feature", "prio:P0", "mvp"], "depends": ["FND-3"], "adrs": ["0004", "0007", "0008"],
       "description": "Process files in staging/inbox: hash, skip known hashes, move into staging/phone/YYYY/MM using the EXIF capture date (fallback: mtime), write a manifest per batch. Enforce the staging quota and the system-drive free-space floor.",
       "ac": ["Duplicate files are not stored twice", "Name collisions with different content keep both files", "Manifest CSV (path, size, sha256) is written per batch", "Ingest is refused or deferred with a notification when the quota would be exceeded"] },

@@ -153,6 +153,7 @@ The full reasoning, including rejected alternatives, is in the **[Architecture D
 | Encryption and secrets | [0014](adr/0014-encryption-and-secrets.md) | Proposed |
 | Cloud overflow vs. offsite | [0015](adr/0015-cloud-overflow-vs-offsite.md) | Deferred |
 | Tailscale roaming, WoL, node-online trigger | [0016](adr/0016-deferred-remote-wake-and-roaming.md) | Deferred |
+| Licensing: AGPL-3.0 + commercial dual licence | [0017](adr/0017-licensing-agpl-with-commercial-dual-licence.md) | Proposed |
 
 ## 6. Open questions
 1. **Databases:** which engines (Postgres, MySQL, SQLite, Mongo, SQL Server)? Native installs or Docker?

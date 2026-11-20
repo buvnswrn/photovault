@@ -31,3 +31,4 @@ Format: [Michael Nygard's ADR template](https://cognitect.com/blog/2011/11/15/do
 | [0014](0014-encryption-and-secrets.md) | Encryption and secret storage | Proposed |
 | [0015](0015-cloud-overflow-vs-offsite.md) | Cloud: overflow and offsite are separate features | Proposed (deferred) |
 | [0016](0016-deferred-remote-wake-and-roaming.md) | Deferred: Tailscale roaming, Wake-on-LAN, node-online triggers | Proposed (deferred) |
+| [0017](0017-licensing-agpl-with-commercial-dual-licence.md) | Licensing: AGPL-3.0 with commercial dual licensing | Proposed |
