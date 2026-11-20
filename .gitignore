@@ -1,0 +1,19 @@
+# Build output
+/bin/
+/dist/
+*.exe
+
+# Local config and state (may contain machine-specific data)
+config.yaml
+*.db
+*.sqlite
+
+# Logs and staging
+/logs/
+/staging/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
