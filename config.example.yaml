@@ -1,0 +1,67 @@
+# photovault configuration
+# Secrets (restic passwords, Healthchecks ping URLs, API tokens) are stored
+# in Windows Credential Manager / the system keyring — never here.
+
+staging:
+  path: "C:/photovault/staging"
+  quota_gb: 50
+  retain_days: 7       # remove staged files this many days after SSD verification
+
+drives:
+  - name: "My SSD"
+    serial: "REPLACE_WITH_SERIAL"
+    role: ssd
+  - name: "My HDD"
+    serial: "REPLACE_WITH_SERIAL"
+    role: hdd
+
+sources:
+  - name: "photos"
+    path: "C:/Users/YourName/Pictures"
+
+repositories:
+  ssd:
+    drive: "My SSD"
+    healthcheck: "ssd-backup"   # Healthchecks.io check name; ping URL in Credential Manager
+    retention:
+      daily: 14
+      weekly: 8
+      monthly: 12
+      yearly: 0
+  hdd:
+    drive: "My HDD"
+    healthcheck: "hdd-backup"
+    retention:
+      daily: 0
+      weekly: 0
+      monthly: 24
+      yearly: -1    # -1 = keep forever
+  offsite:
+    enabled: false
+    healthcheck: "offsite-backup"
+    retention:
+      daily: 0
+      weekly: 0
+      monthly: 24
+      yearly: -1
+
+databases: []
+# databases:
+#   - name: "myapp"
+#     type: postgres    # postgres | mysql | sqlite | mongo
+#     # connection string stored in Credential Manager
+
+load:
+  cpu_percent: 70
+  memory_percent: 85
+  disk_active_percent: 80
+  sample_window_seconds: 30
+  idle_wait_minutes: 5
+  always_ask: false
+
+slow_mode:
+  bandwidth_limit_kb: 1024
+  cpu_priority: low     # low | normal
+
+healthchecks:
+  base_url: "https://hc-ping.com"
