@@ -1,6 +1,6 @@
 # ADR-0003: Hub runs as a logon-time tray process, not a Windows Service
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Date:** 2026-11-20
 - **Related:** ADR-0009, ADR-0011
 
