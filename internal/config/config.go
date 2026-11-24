@@ -107,6 +107,85 @@ func WriteExample(path string) error {
 	return os.WriteFile(path, []byte(exampleYAML), 0o644)
 }
 
+// KnownSerials reads the drives list from path without full validation.
+// Returns a set of serials already registered.
+func KnownSerials(path string) (map[string]bool, error) {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return map[string]bool{}, nil
+		}
+		return nil, fmt.Errorf("config: cannot read %s: %w", path, err)
+	}
+	var partial struct {
+		Drives []DriveConfig `yaml:"drives"`
+	}
+	if err := yaml.Unmarshal(data, &partial); err != nil {
+		return nil, fmt.Errorf("config: cannot parse %s: %w", path, err)
+	}
+	out := make(map[string]bool, len(partial.Drives))
+	for _, d := range partial.Drives {
+		if d.Serial != "" {
+			out[d.Serial] = true
+		}
+	}
+	return out, nil
+}
+
+// AppendDrive adds a drive entry to the drives: list in the YAML file at path,
+// preserving all existing content and comments.
+func AppendDrive(path string, d DriveConfig) error {
+	entry := fmt.Sprintf("  - name: %q\n    serial: %q\n    role: %s\n", d.Name, d.Serial, d.Role)
+
+	data, err := os.ReadFile(path)
+	if err != nil {
+		if !os.IsNotExist(err) {
+			return fmt.Errorf("config: cannot read %s: %w", path, err)
+		}
+		// No file yet — create a minimal one.
+		return os.WriteFile(path, []byte("drives:\n"+entry), 0o644)
+	}
+
+	// Find insertion point: after the last `role:` line inside the drives: block.
+	lines := strings.Split(string(data), "\n")
+	insertAt := -1
+	inDrives := false
+	for i, line := range lines {
+		t := strings.TrimSpace(line)
+		if t == "drives:" {
+			inDrives = true
+			insertAt = i + 1 // default: insert right after drives: if list is empty
+			continue
+		}
+		if inDrives {
+			if strings.HasPrefix(t, "role:") {
+				insertAt = i + 1
+			} else if t != "" && !strings.HasPrefix(t, "-") &&
+				!strings.HasPrefix(t, "name:") && !strings.HasPrefix(t, "serial:") &&
+				!strings.HasPrefix(t, "#") {
+				break // left the drives block
+			}
+		}
+	}
+
+	if insertAt < 0 {
+		// drives: section not found — just append
+		return os.WriteFile(path, append(data, []byte("\ndrives:\n"+entry)...), 0o644)
+	}
+
+	var buf strings.Builder
+	for i, line := range lines {
+		if i == insertAt {
+			buf.WriteString(entry)
+		}
+		buf.WriteString(line)
+		if i < len(lines)-1 {
+			buf.WriteByte('\n')
+		}
+	}
+	return os.WriteFile(path, []byte(buf.String()), 0o644)
+}
+
 func defaults() *Config {
 	return &Config{
 		Staging: StagingConfig{
